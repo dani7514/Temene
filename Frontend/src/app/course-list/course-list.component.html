@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="sidebar">
+    <h2>Filter By:</h2>
+    <form>
+      <div>
+        <label for="category">Language:</label>
+        <select
+          id="category"
+          #select
+          name="category"
+          (change)="setLanguage(select.value)"
+        >
+          <option value="" disabled selected>Select a Language</option>
+          <option value="">All</option>
+          <option #amharic value="Amharic">Amharic</option>
+          <option #english value="English">English</option>
+          <option #AffanOrromo value="Afan Oromo">Afan Orommo</option>
+        </select>
+      </div>
+      <div>
+        <label for="price-range">Price Range:</label>
+        <div>
+          <input
+            id="price-range"
+            #price1
+            type="text"
+            name="price-range"
+            placeholder="Minimum"
+            (input)="setPriceRangeMin(price1.value)"
+          />
+          <input
+            id="price-range"
+            #price2
+            type="text"
+            placeholder="Maximum"
+            name="price-range"
+            (input)="setPriceRangeMax(price2.value)"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="price-range">Course Level:</label>
+        <select
+          id="price-range"
+          #selectLevel
+          name="price-range"
+          (change)="setLevel(selectLevel.value)"
+        >
+          <option value="" disabled selected>Select a Course level</option>
+          <option value="">All</option>
+          <option #begginer value="Beginner">Beginner</option>
+          <option #intermidate value="Intermidate">Intermidate</option>
+          <option #Advanced value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <input type="submit" value="Filter" (click)="sendData()" />
+    </form>
+  </div>
+  <div class="main">
+    <div class="search-input-container">
+      <input
+        #search
+        type="text"
+        id="search"
+        name="search"
+        (input)="setSearch(search.value)"
+      />
+      <button type="submit" value="search" (click)="sendData()">Search</button>
+    </div>
+    <h1>Course Results</h1>
+    <div class="product">
+      <div class="product-card" *ngFor="let course of courses">
+        <a
+          routerLink="/coursedetail/{{ course._id }} "
+          class="text-decoration-none text-dark"
+        >
+          <div class="product-image">
+            <img
+              [src]="'http://127.0.0.1:3000/images/' + course.thumbnail"
+              alt="Product Image"
+            />
+          </div>
+          <div class="product-info">
+            <h2 class="product-title">{{ course.title }}</h2>
+            <p class="product-price">Price: {{ course.price }} Birr</p>
+            <p class="product-language">Language: {{ course.language }}</p>
+            <p class="product-language">Level: {{ course.level }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

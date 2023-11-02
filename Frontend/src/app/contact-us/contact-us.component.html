@@ -1,0 +1,143 @@
+<section>
+  <div
+    style="
+      background: linear-gradient(
+          rgba(11, 11, 11, 0.684),
+          rgba(32, 34, 34, 0.5)
+        ),
+        url(./assets/contact.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+      opacity: 1;
+    "
+    class="py-5 mb-5 page-holder bg-cover"
+  >
+    <div class="container py-5 text-white">
+      <h2 class="" style="font-size: 4em">Contact us</h2>
+      <p class="lead fs-3">We are here with you every step way!</p>
+    </div>
+  </div>
+</section>
+
+<section class="section1">
+  <div class="container-fluid">
+    <div class="row mt-au">
+      <div
+        class="col-xl-6 col-lg-6 col-md-6 gap-3 mt-5 pt-5 d-flex flex-column align-items-center"
+        style="border: 1px solid #ddd"
+      >
+        <div class="container">
+          <form
+            id="contactus"
+            action=""
+            method="post"
+            (ngSubmit)="onSubmit(myForm)"
+            [formGroup]="contactForm"
+            #myForm="ngForm"
+          >
+            <h3>Get In Touch</h3>
+
+            <fieldset>
+              <input
+                class="form-control py-4 rounded"
+                placeholder="name"
+                type="text"
+                name="name"
+                tabindex="1"
+                formControlName="name"
+                required
+                autofocus
+              />
+              <span
+                *ngIf="
+                  f['name'].getError('required') != null &&
+                  contactForm.get('name')?.touched
+                "
+                class="red"
+                >Name is Required</span
+              >
+            </fieldset>
+            <fieldset>
+              <input
+                class="form-control py-4 rounded"
+                placeholder="Email Address"
+                type="email"
+                name="email"
+                tabindex="2"
+                formControlName="email"
+                required
+              />
+              <span
+                *ngIf="
+                  f['email'].getError('required') != null &&
+                  contactForm.get('email')?.touched
+                "
+                class="red"
+                >Email is Required</span
+              >
+              <span
+                *ngIf="
+                  f['email'].getError('email') != null &&
+                  !contactForm.get('email')?.valid &&
+                  contactForm.get('email')?.touched
+                "
+                class="red"
+                >Invalid Email</span
+              >
+            </fieldset>
+
+            <fieldset>
+              <textarea
+                class="form-control py-5 rounded"
+                placeholder="Type your message here..."
+                name="message"
+                tabindex="5"
+                formControlName="message"
+                required
+              ></textarea>
+            </fieldset>
+            <fieldset>
+              <button
+                class="py-3 rounded"
+                name="submit"
+                type="submit"
+                id="contactus-submit"
+                [disabled]="myForm.invalid"
+                data-submit="...Sending"
+              >
+                Send Now
+              </button>
+              <span *ngIf="f['submit'].getError('submit') != null"
+                >Message has been sent</span
+              >
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div
+        class="col-xl-6 col-lg-6 col-md-6 pt-3 mt-5 ps-5"
+        style="border: 1px solid #ddd"
+      >
+        <img
+          src="./assets/ethio.png"
+          alt="responsive webite"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="p-5 container-fluid w-100">
+  <div class="map-responsive">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97045.13120882129!2d38.76183167594376!3d8.97959793383355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b9b33a3569139%3A0xb505349b8c87fdd2!2sBole%2C%20Addis%20Ababa!5e1!3m2!1sen!2set!4v1677016956168!5m2!1sen!2set"
+      width="100%"
+      height="450"
+      frameborder="0"
+      style="border: 0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>

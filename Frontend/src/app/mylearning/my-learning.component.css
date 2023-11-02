@@ -1,0 +1,31 @@
+* {
+  font-family: Nunito;
+}
+.mylearning-cont {
+  background-color: #a19d9d;
+  color: white;
+}
+.mylearning-cont h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+.mylearning-cont p {
+  font-size: 1.5em;
+}
+.image {
+  border: 1px #e3dddd solid;
+}
+.card {
+  border: none;
+}
+.container {
+  margin-top: 100px;
+  margin-left: 80px;
+}
+.image-size {
+  width: 200px;
+  height: 200px;
+}
+.instructor {
+  color: #a19d9d;
+}

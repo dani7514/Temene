@@ -1,0 +1,121 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-lg-between shadow my-4"
+>
+  <div class="container-fluid mx-5 border border-light">
+    <a class="navbar-brand" href="#"
+      ><img src="../../assets/logoSmall.svg" alt="the site's logo"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex flex-col align-items-center flex-lg-col justify-content-lg-between gap-lg-4"
+      >
+        <li>
+          <a
+            class="nav-link active hover-link fw-bolder bg-dark text-white text-decoration-none rounded-2"
+            routerLink="Instructor/createcourse"
+            >Be Instructor</a
+          >
+        </li>
+        <li>
+          <a class="nav-link active hover-link fw-bolder" routerLink="aboutus"
+            >About</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="nav-link active hover-link fw-bolder"
+            routerLink="course-list"
+            >Courses</a
+          >
+        </li>
+        <li>
+          <a class="nav-link active hover-link fw-bolder" routerLink="contactus"
+            >Contact</a
+          >
+        </li>
+        <li *ngIf="!loggedIn">
+          <a routerLink="login"
+            ><button
+              class="btn btn-sm btn-dark btn-outline-white active rounded-2 login_btn"
+            >
+              Login/Register
+            </button></a
+          >
+        </li>
+        <div *ngIf="loggedIn" class="user-icon">
+          <img [src]="image_link" alt="User Icon" />
+          <div class="user-details">
+            <img [src]="image_link" alt="User Photo" />
+            <p>{{ full_name }}</p>
+            <a routerLink="Profile">Manage Profile</a>
+            <a routerLink="mylearning">My Learning</a>
+            <a *ngIf="isInstructor" routerLink="Instructor">My Class</a>
+            <button id="logout-btn" (click)="logout()">
+              <img
+                width="20"
+                height="20"
+                src="../assets/logout.svg"
+                alt=""
+                id="logout-image"
+              />
+              Log out
+            </button>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<div class="mt-5">
+  <footer class="text-center text-lg-start bg-dark" style="color: white">
+    <ul class="container d-flex justify-content-center gap-4 pt-5">
+      <li class="nav-link">
+        <a class="sitemaps" style="color: white" href="#">Home</a>
+      </li>
+      <li class="nav-link">
+        <a class="sitemaps" style="color: white" href="#">About</a>
+      </li>
+      <li class="nav-link">
+        <a class="sitemaps" style="color: white" href="#">Contact</a>
+      </li>
+      <li class="nav-link">
+        <a class="sitemaps" style="color: white" href="#">Courses</a>
+      </li>
+      <li class="nav-link">
+        <a class="sitemaps" style="color: white" href="#">Instructor</a>
+      </li>
+    </ul>
+    <hr />
+    <div class="d-flex justify-content-around">
+      <div class="copywrite px-3 d-flex align-items-center">
+        <img
+          class="footer-img"
+          src="../../assets/logoSmall.svg"
+          alt=""
+          class="footer-logo"
+        />
+        <p class="mx-3 my-2">&#169; 2023 Copyright:</p>
+      </div>
+      <div class="socials d-flex gap-2 px-3">
+        <img class="footer-img" src="../../assets/github.png" alt="" />
+        <img class="footer-img" src="../../assets/linkedin (1).png" alt="" />
+        <img class="footer-img" src="../../assets/twitter.png" alt="" />
+      </div>
+    </div>
+  </footer>
+</div>

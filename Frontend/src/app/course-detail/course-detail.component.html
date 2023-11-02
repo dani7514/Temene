@@ -1,0 +1,164 @@
+<body>
+  <div class="background">
+    <img
+      [src]="'http://127.0.0.1:3000/images/' + courses.thumbnail"
+      alt="Product Image"
+      class="courseImage"
+      alt=""
+    />
+    <div>
+      <h1>{{ courses.title }}</h1>
+      <p>Language: {{ courses.language }}</p>
+      <p>Level: {{ courses.level }}</p>
+      <p>Price: {{ courses.price }} Birr</p>
+      <p>Duration: {{ courses.duration }} hours</p>
+    </div>
+  </div>
+  <div class="bigcontainer">
+    <div class="leftcontainer">
+      <div class="container">
+        <div class="list">
+          <h1>About this Course</h1>
+          <p style="overflow: hidden; word-break: break-all">
+            {{ courses.description }}
+          </p>
+        </div>
+
+        <div class="list">
+          <h1>Course Description</h1>
+          <ul class="desc-list">
+            <li><strong>Skill level:</strong> {{ courses.level }}</li>
+            <li>
+              <strong>No of Students:</strong> {{ courses.student_number }}
+            </li>
+            <li><strong>Languages:</strong> {{ courses.language }}</li>
+            <li><strong>Captions:</strong> Yes</li>
+            <li><strong>Lectures:</strong> 10</li>
+            <li><strong>Videos:</strong> 1 hours</li>
+          </ul>
+        </div>
+        <h1 class="course-content">Course content</h1>
+        <div class="list">
+          <button class="accordion">Chapter 1: Introduction</button>
+          <div class="panel">
+            <ul>
+              <li>Overview</li>
+              <li>Goals</li>
+              <li>Scope</li>
+            </ul>
+          </div>
+
+          <!-- Second chapter accordion -->
+          <button class="accordion">Chapter 2: Methodology</button>
+          <div class="panel">
+            <ul>
+              <li>Data Collection</li>
+              <li>Data Analysis</li>
+              <li>Assumptions and Limitations</li>
+            </ul>
+          </div>
+
+          <!-- Third chapter accordion -->
+          <button class="accordion">Chapter 3: Results</button>
+          <div class="panel">
+            <ul>
+              <li>Overview</li>
+              <li>Findings 1</li>
+              <li>Findings 2</li>
+              <li>Findings 3</li>
+            </ul>
+          </div>
+
+          <!-- Fourth chapter accordion -->
+          <button class="accordion">Chapter 4: Conclusion</button>
+          <div class="panel">
+            <ul>
+              <li>Summary of Findings</li>
+              <li>Implications</li>
+              <li>Recommendations</li>
+            </ul>
+          </div>
+          <button class="accordion">Chapter 5: Methodology</button>
+          <div class="panel">
+            <ul>
+              <li>Data Collection</li>
+              <li>Data Analysis</li>
+              <li>Assumptions and Limitations</li>
+            </ul>
+          </div>
+          <button class="accordion">Chapter 6: Methodology</button>
+          <div class="panel">
+            <ul>
+              <li>Data Collection</li>
+              <li>Data Analysis</li>
+              <li>Assumptions and Limitations</li>
+            </ul>
+          </div>
+          <button class="accordion">Chapter 7: Methodology</button>
+          <div class="panel">
+            <ul>
+              <li>Data Collection</li>
+              <li>Data Analysis</li>
+              <li>Assumptions and Limitations</li>
+            </ul>
+          </div>
+          <button class="accordion">Chapter 8: Methodology</button>
+          <div class="panel">
+            <ul>
+              <li>Data Collection</li>
+              <li>Data Analysis</li>
+              <li>Assumptions and Limitations</li>
+            </ul>
+          </div>
+        </div>
+
+        <h1>About the instructor</h1>
+        <div class="profile-card list">
+          <img
+            class="profile-picture"
+            [src]="
+              appservice.user.profile_picture
+                ? 'http://127.0.0.1:3000/images/' +
+                  appservice.user.profile_picture
+                : '../assets/person1.svg'
+            "
+            alt="Profile Picture"
+          />
+          <section class="profile-details">
+            <h2>
+              {{ courses.instructor.first_name }}
+              {{ courses.instructor.last_name }}
+            </h2>
+            <ul>
+              <li><strong>Email:</strong> {{ courses.instructor.email }}</li>
+              <li>
+                <strong>No of students:</strong>
+                {{ courses.instructor.student.length }}
+              </li>
+              <li>
+                <strong>Number of courses created:</strong>
+                {{ courses.instructor.courses_created.length }}
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="rightcontainer">
+        <div class="card">
+          <div class="card-price">{{ courses.price }} Birr</div>
+          <div class="card-description">
+            <h3 class="card-title">{{ courses.title }}</h3>
+            <p class="card-text">
+              Learn {{ courses.title }} with our comprehensive course.
+            </p>
+          </div>
+          <button class="card-button" (click)="sendData(courses._id)">
+            Enroll Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

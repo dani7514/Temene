@@ -1,0 +1,25 @@
+<nav>
+  <!-- <img src="./assets/temene.svg" alt=""> -->
+  <h2>Students List</h2>
+  <!-- <input type="search" placeholder="Search"/> -->
+</nav>
+<div class="courses">
+  <p class="student__title">Students</p>
+  <p class="student__num">More than {{ numStudent }}&#43; new member</p>
+  <div class="students__contAll">
+    <div *ngFor="let student of students">
+      <div class="students__cont">
+        <img
+          [src]="
+            student.profile_picture
+              ? 'http://127.0.0.1:3000/images/' + student.profile_picture
+              : '../assets/person1.svg'
+          "
+          alt=""
+        />
+        <p>{{ student.first_name }} {{ student.last_name }}</p>
+        <a href="">{{ student.email }}</a>
+      </div>
+    </div>
+  </div>
+</div>

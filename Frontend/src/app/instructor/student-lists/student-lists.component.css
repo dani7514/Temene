@@ -1,0 +1,48 @@
+* {
+  font-family: Nunito;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+h2 {
+  font-size: 30px;
+}
+.courses {
+  width: 120vh;
+  border: 2px solid gainsboro;
+  border-radius: 15px;
+  padding-inline: 40px;
+}
+.students__cont img {
+  width: 200px;
+  height: 150px;
+}
+.student__num {
+  color: lightgrey;
+  font-weight: 600;
+}
+.students__contAll {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding-block: 20px;
+}
+.students__cont {
+  border: 1px solid gainsboro;
+  border-radius: 15px;
+  text-align: center;
+  padding-block: 20px;
+}
+.students__cont > a:hover {
+  color: blue;
+}
+.student__title {
+  font-size: 30px;
+}
+@media (max-width: 1000px) {
+  .courses {
+    width: 93%;
+  }
+}

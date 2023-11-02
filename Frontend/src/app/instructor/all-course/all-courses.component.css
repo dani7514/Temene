@@ -1,0 +1,73 @@
+/* *{
+    font-family: Nunito;
+    text-decoration: none;
+} */
+* {
+  font-family: Nunito;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+h2 {
+  font-size: 30px;
+}
+
+.CNPL {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.CNPL p {
+  text-align: center;
+}
+.courses {
+  width: 120vh;
+  border: 2px solid gainsboro;
+  border-radius: 15px;
+  padding-inline: 40px;
+}
+.side-bar__ele {
+  display: flex;
+  gap: 15%;
+  padding-inline: 50px;
+  padding-block: 15px;
+}
+
+.side-bar__title {
+  font-size: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
+}
+.active {
+  color: #14a1db;
+}
+.side-bar__title:hover {
+  color: #14a1db;
+}
+.please {
+  margin-left: -100px;
+}
+.course__num {
+  color: purple;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.course__cont {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+  padding-block: 20px;
+}
+.course__title {
+  font-size: 2.5rem;
+}
+@media (max-width: 1200px) {
+  .courses {
+    width: 93%;
+  }
+}

@@ -1,0 +1,198 @@
+<div id="container" class="container mb-5">
+  <div id="form">
+    <form class="main form-group" #myForm="ngForm" [formGroup]="reactiveForm">
+      <h1>Sign UP</h1>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example1">First Name</label>
+
+        <input
+          #firstname
+          type="text"
+          formControlName="firstName"
+          id="form1Example5"
+          class="form-control"
+          placeholder="Enter Your First Name here"
+          (input)="setFirstName(firstname.value)"
+        />
+
+        <span
+          *ngIf="
+            f['firstName'].getError('required') != null &&
+            reactiveForm.get('firstName')?.touched
+          "
+          >First Name is Required</span
+        >
+        <span
+          *ngIf="
+            f['firstName'].getError('pattern') != null &&
+            !reactiveForm.get('firstName')?.valid &&
+            reactiveForm.get('firstName')?.touched
+          "
+          >Name Must Be Only Letter</span
+        >
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example1">Last Name</label>
+
+        <input
+          #lastname
+          type="text"
+          id="form1Example1"
+          class="form-control"
+          placeholder="Enter Your Last Name here"
+          name="lastName"
+          required
+          formControlName="lastName"
+          (input)="setLastName(lastname.value)"
+        />
+
+        <span
+          *ngIf="
+            f['lastName'].getError('required') != null &&
+            reactiveForm.get('lastName')?.touched
+          "
+          >Last Name is Required</span
+        >
+        <span
+          *ngIf="
+            f['lastName'].getError('pattern') != null &&
+            !reactiveForm.get('lastName')?.valid &&
+            reactiveForm.get('lastName')?.touched
+          "
+          >Name Must Be Only Letter</span
+        >
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example1">Email</label>
+
+        <input
+          #email
+          type="email"
+          id="form1Example1"
+          class="form-control"
+          placeholder="Enter Your Email here"
+          formControlName="email"
+          required
+          email
+          formControlName="email"
+          name="email"
+          (input)="setEmail(email.value)"
+        />
+
+        <span
+          *ngIf="
+            f['email'].getError('required') != null &&
+            reactiveForm.get('email')?.touched
+          "
+          >Email is Required</span
+        >
+        <span
+          *ngIf="
+            f['email'].getError('email') != null &&
+            !reactiveForm.get('email')?.valid &&
+            reactiveForm.get('email')?.touched
+          "
+          >The Email Must satisfy Email Form</span
+        >
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example2">Password</label>
+
+        <input
+          type="password"
+          id="form1Example2"
+          class="form-control"
+          name="password"
+          placeholder="Enter Your Password here"
+          required
+          formControlName="password"
+        />
+        <span
+          *ngIf="
+            f['password'].getError('required') != null &&
+            reactiveForm.get('password')?.touched
+          "
+          >Password is Required</span
+        >
+        <span
+          *ngIf="
+            f['password'].getError('minlength') != null &&
+            !reactiveForm.get('password')?.valid &&
+            reactiveForm.get('password')?.touched
+          "
+          >The Password Must Be Atleast 4 in length
+        </span>
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example2">Confirm Password</label>
+
+        <input
+          #password
+          type="password"
+          id="form1Example3"
+          class="form-control"
+          name="confirmPassword"
+          placeholder="Enter Your Password Again here"
+          ngModel
+          required
+          formControlName="confirmPassword"
+          (input)="setPassWord(password.value)"
+        />
+        <span
+          *ngIf="
+            f['confirmPassword'].getError('required') != null &&
+            reactiveForm.get('confirmPassword')?.touched
+          "
+          >Confirm password is Required
+        </span>
+
+        <span
+          *ngIf="
+            f['confirmPassword'].getError('mustMatch') != null &&
+            !reactiveForm.get('confirmPassword')?.valid &&
+            reactiveForm.get('confirmPassword')?.touched
+          "
+          >The Password Mismatched</span
+        >
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="text-center fs-5">
+            <p style="display: inline">If you have an account</p>
+            <a class="fs-4" routerLink="/login"> Log&nbsp;In</a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row mb-4">
+        <div class="col-sm-8">
+          <h6>If you have an Account <a routerLink="/login">Log In</a></h6>
+        </div>
+      </div> -->
+
+      <!-- Submit button -->
+      <div class="d-flex align-items-center justify-content-center">
+        <input
+          type="submit"
+          value="Sign UP"
+          id="submit"
+          [disabled]="myForm.invalid"
+          (click)="sendData()"
+        />
+      </div>
+    </form>
+  </div>
+
+  <div id="svgs">
+    <img src="./assets/last.svg" alt="" id="img1" />
+    <img src="./assets/second.svg" alt="" id="img2" />
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<nav>
+  <h2>Create Course</h2>
+</nav>
+
+<div class="courses">
+  <p class="course__title">Course</p>
+  <p class="course__desc">
+    The create course page is crucial to your success on our marketplace. This
+    is your opportunity to entice learners to enroll in your course. If it’s
+    done right, it can also help you gain visibility in search engines. As you
+    complete this section, think about why someone would want to enroll in your
+    course.
+    <br />
+    This is one of the first things your potential learners will see when
+    they’re browsing courses. It’s similar to when shopping for a product
+    online. You want to read the product details, look at pictures, and read
+    reviews before you decide whether or not to purchase. Learners will do the
+    same thing and decide whether to enroll in your course after they review the
+    information on the create course page.
+  </p>
+  <h3>Course Title</h3>
+  <input
+    class="title"
+    #title
+    type="text"
+    name="courseTitle"
+    formControlName="courseTitle"
+    placeholder="enter your course title"
+    (input)="setTitle(title.value)"
+    required
+  />
+
+  <h3>Course Description</h3>
+  <textarea
+    class="title"
+    type="text"
+    #description
+    name="courseDescription"
+    rows="10"
+    formControlName="courseDescription"
+    placeholder="enter your course description"
+    (input)="setDiscription(description.value)"
+    required
+  ></textarea>
+
+  <h3>Course Duration</h3>
+  <input
+    #duration
+    class="title"
+    type="text"
+    name="courseDuration"
+    formControlName="courseDuration"
+    placeholder="enter the duration time"
+    (input)="setDuration(duration.value)"
+    required
+  />
+
+  <h3>Course Price</h3>
+  <input
+    #price
+    class="title"
+    type="text"
+    name="coursePrice"
+    formControlName="coursePrice"
+    (input)="setPrice(price.value)"
+    placeholder="enter your course description"
+    required
+  />
+
+  <h3>Basic Information</h3>
+  <div class="basicinfo">
+    <select
+      name="level"
+      #level
+      class="selectOption"
+      (change)="setLevel(level.value)"
+      required
+    >
+      <option value="" disabled selected>Course Level</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermidate">Intermidate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+    <select
+      name="language"
+      #language
+      class="selectOption"
+      (change)="setLanguage(language.value)"
+      required
+    >
+      <option value="" disabled selected>Language</option>
+      <option value="Amharic">Amharic</option>
+      <option value="English">English</option>
+      <option value="Afan Oromo">Afan Oromo</option>
+    </select>
+  </div>
+
+  <h3>Course Image</h3>
+  <input type="file" name="image" (change)="setImage($event)" required />
+
+  <div>
+    <button class="submit" (click)="sendData()">Submit</button>
+  </div>
+</div>

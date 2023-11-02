@@ -1,0 +1,30 @@
+<div class="contain">
+  <div class="side-bar">
+    <div class="side-bar__ele">
+      <div>
+        <img src="./assets/All-courses.svg" alt="" />
+      </div>
+      <div class="side-bar-links">
+        <a routerLink="allcourses" class="side-bar__title">My Courses</a>
+      </div>
+    </div>
+    <div class="side-bar__ele">
+      <div>
+        <img src="./assets/students.svg" alt="" />
+      </div>
+      <div class="side-bar-links">
+        <a routerLink="students" class="side-bar__title active">Students</a>
+      </div>
+    </div>
+    <div class="side-bar__ele">
+      <div>
+        <img src="./assets/resources.svg" alt="" />
+      </div>
+      <div class="side-bar-links">
+        <a routerLink="createcourse" class="side-bar__title">Create Course</a>
+      </div>
+    </div>
+  </div>
+  <div class="courses"></div>
+  <router-outlet></router-outlet>
+</div>

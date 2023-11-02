@@ -1,0 +1,30 @@
+<nav>
+  <h2>Course List</h2>
+</nav>
+
+<div class="courses">
+  <p class="course__title">Courses</p>
+  <div class="CNPL">
+    <p class="course__num">Courses Title</p>
+    <p class="course__num">Number Of Students</p>
+    <p class="course__num">Price Of Course</p>
+    <p class="course__num">Level</p>
+    <ng-container *ngFor="let course of courses">
+      <p>{{ course.title }}</p>
+      <p>{{ course.student_number || 0 }}</p>
+      <p>{{ course.price }}</p>
+      <p>{{ course.level }}</p>
+    </ng-container>
+  </div>
+
+  <!-- <div class="course__contAll">
+    <div *ngFor="let course of courses">
+      <div class="course__cont">
+        <p class="please">{{ course.title }}</p>
+        <p>{{ course.student_number || 0 }}</p>
+        <p>{{ course.price }}</p>
+        <p>{{ course.level }}</p>
+      </div>
+    </div>
+  </div> -->
+</div>

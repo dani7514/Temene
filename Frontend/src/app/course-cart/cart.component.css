@@ -1,0 +1,41 @@
+* {
+  font-family: Nunito;
+}
+.order {
+  border: 1px #dfdddd solid;
+  height: 300px;
+}
+.un-list {
+  margin-top: 40px;
+}
+.check {
+  width: 300px;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.cancel-btn {
+  margin-left: 50px;
+}
+.instructor {
+  color: #7b7575;
+}
+.price {
+  margin-top: 30px;
+}
+.course-title {
+  font-size: 27px;
+}
+.course-image {
+  margin-top: 35px;
+}
+.title {
+  margin-bottom: 50px;
+  border: 1px #beb6b6 solid;
+  width: 120px;
+  height: 40px;
+  border-radius: 7px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 100px;
+}

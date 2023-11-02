@@ -1,0 +1,64 @@
+* {
+  font-family: Nunito;
+  text-decoration: none;
+}
+
+input {
+  background-color: white;
+  color: black;
+  border: 2px solid gainsboro;
+  border-radius: 15px;
+  font-size: 100%;
+  font-weight: 800;
+  padding-inline: 4%;
+  padding-block: 1%;
+}
+
+.side-bar {
+  width: 20%;
+  border-left: none;
+  border-block: 2px solid gainsboro;
+  border-right: 2px solid gainsboro;
+  border-radius: 15px;
+  padding-top: 30px;
+}
+.side-bar__ele {
+  display: flex;
+  gap: 15%;
+  padding-inline: 60px;
+  padding-block: 18px;
+}
+.side-bar-links {
+  padding-top: 2%;
+}
+.img3 {
+  color: black;
+}
+
+.side-bar__title {
+  font-size: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
+}
+.side-bar__title:hover {
+  color: #14a1db;
+}
+.contain {
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 1200px) {
+  .contain {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .side-bar {
+    width: 100%;
+  }
+  .courses {
+    width: 93%;
+  }
+}

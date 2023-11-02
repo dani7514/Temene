@@ -1,0 +1,99 @@
+<div id="container" class="container-lg">
+  <div class="">
+    <form class="main" #myForm="ngForm" [formGroup]="reactiveForm">
+      <h1>Login</h1>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example1">Email</label>
+
+        <input
+          #email
+          type="email"
+          id="form1Example1"
+          class="form-control"
+          placeholder="Enter Your Email here"
+          formControlName="email"
+          required
+          email
+          formControlName="email"
+          name="email"
+          (input)="setEmail(email.value)"
+        />
+
+        <span
+          *ngIf="
+            f['email'].getError('required') != null &&
+            reactiveForm.get('email')?.touched
+          "
+          >Email is Required</span
+        >
+        <span
+          *ngIf="
+            f['email'].getError('email') != null &&
+            !reactiveForm.get('email')?.valid &&
+            reactiveForm.get('email')?.touched
+          "
+          >The Email Must satisfy Email Form</span
+        >
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form1Example2">Password</label>
+
+        <input
+          #password
+          type="password"
+          id="form1Example2"
+          class="form-control"
+          name="password"
+          placeholder="Enter Your Password here"
+          required
+          formControlName="password"
+          (input)="setPassword(password.value)"
+        />
+        <span
+          *ngIf="
+            f['password'].getError('required') != null &&
+            reactiveForm.get('password')?.touched
+          "
+          >Password is Required</span
+        >
+        <span
+          *ngIf="
+            f['password'].getError('minlength') != null &&
+            !reactiveForm.get('password')?.valid &&
+            reactiveForm.get('password')?.touched
+          "
+          >The Password Must Be Atleast 4 in length
+        </span>
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="text-center fs-5">
+            <p style="display: inline">If you don't have an account</p>
+            <a class="fs-4" routerLink="/signup"> Sign&nbsp;Up</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="d-flex align-items-center justify-content-center">
+        <input
+          #submit
+          type="submit"
+          value="Log In"
+          id="submit"
+          [disabled]="myForm.invalid"
+          (click)="sendData()"
+        />
+      </div>
+    </form>
+  </div>
+  <div id="svgs">
+    <img src="./assets/last.svg" alt="" id="img1" />
+    <img src="./assets/second.svg" alt="" id="img2" />
+  </div>
+</div>

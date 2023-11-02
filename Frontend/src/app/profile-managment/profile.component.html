@@ -1,0 +1,139 @@
+<div class="contain">
+  <main class="inputs">
+    <div class="py-5 text-center">
+      <h2>Manage Profile</h2>
+      <p class="lead">Edit information about yourself</p>
+    </div>
+
+    <div class="col-md-8 col-lg-7">
+      <form
+        class="form-group"
+        #myForm="ngForm"
+        [formGroup]="reactiveForm"
+        (submit)="save()"
+      >
+        <div class="row g-3">
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <label for="firstName" class="form-label">First name</label>
+            <input
+              #first_name
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              id="firstName"
+              [placeholder]="appService.user.first_name"
+              value=""
+              (input)="setFirstName(first_name.value)"
+            />
+            <span
+              class="error"
+              *ngIf="
+                f['firstName'].getError('required') != null &&
+                reactiveForm.get('firstName')?.touched
+              "
+              >First Name is Required</span
+            >
+            <span
+              class="error"
+              *ngIf="
+                f['firstName'].getError('pattern') != null &&
+                !reactiveForm.get('firstName')?.valid &&
+                reactiveForm.get('firstName')?.touched
+              "
+              >Name Must Be Only Letter</span
+            >
+          </div>
+
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <label for="lastName" class="form-label">Last name</label>
+            <input
+              #last_name
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              id="lastName"
+              [placeholder]="appService.user.last_name"
+              value=""
+              (input)="setLastName(last_name.value)"
+            />
+            <span
+              class="error"
+              *ngIf="
+                f['lastName'].getError('required') != null &&
+                reactiveForm.get('lastName')?.touched
+              "
+              >Last Name is Required</span
+            >
+            <span
+              class="error"
+              *ngIf="
+                f['lastName'].getError('pattern') != null &&
+                !reactiveForm.get('lastName')?.valid &&
+                reactiveForm.get('lastName')?.touched
+              "
+              >Name Must Be Only Letter</span
+            >
+          </div>
+
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <label for="password" class="form-label">Password</label>
+            <div>
+              <input
+                #password
+                class="input-cont form-control"
+                type="password"
+                id="password"
+                (input)="setPassword(password.value)"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <label for="confirm-password" class="form-label"
+              >Confirm Password</label
+            >
+            <div>
+              <input
+                class="input-cont form-control"
+                type="password"
+                id="confirm-password"
+              />
+            </div>
+          </div>
+          <div class="py-5 text-center">
+            <h2>Photo</h2>
+            <p class="lead">Add a nice photo of yourself for your profile.</p>
+            <hr class="my-4" />
+          </div>
+        </div>
+        <div class="profile">
+          <div>
+            <img
+              alt="user image"
+              class="img-fluid rounded user_image"
+              src="./assets/user-image.webp"
+            />
+          </div>
+          <div>
+            <input
+              type="file"
+              class="photo"
+              id="file_choose"
+              (change)="setImage($event)"
+              placeholder="."
+            />
+          </div>
+        </div>
+        <p class="py-3 text-success bolder fs-3 text-center">{{ success }}</p>
+        <div class="d-flex justify-content-center align-items-center">
+          <input
+            class="submit"
+            type="submit"
+            value="SAVE"
+            (click)="displaySuccess()"
+            [disabled]="myForm.invalid"
+          />
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
